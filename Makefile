@@ -11,3 +11,7 @@ dns.o: dns.c
 	gcc -pthread -std=c99 $(CXXFLAGS) dns.c -Wall -c -o dns.o
 
 %.o: %.cpp
+
+.PHONY: clean
+clean:
+	rm -f dnsseed *.o

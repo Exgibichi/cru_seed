@@ -17,6 +17,8 @@ static const std::string testnet_seeds[] = {""};
 
 static const int mainnet_port = 20180;
 static const int testnet_port = 20181;
+static const int minimunClientVersion = 1000;
+static const int PROTOCOL_VERSION = 70002;
 
 static unsigned char pchMessageStart[4] = {0x12, 0x22, 0x32, 0x42};
 static unsigned char pchMessageStart_testnet[4] = {0x0b, 0x11, 0x09, 0x07};
