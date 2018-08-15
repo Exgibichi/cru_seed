@@ -216,8 +216,8 @@ public:
   bool Run() {
     bool res = true;
     if (!ConnectSocket(you, sock)) {
-       printf("cannot connect socket\n");
-       return false;
+      printf("%s: cannot connect socket\n", ToString(you).c_str());
+      return false;
     }
     PushVersion();
     Send();
@@ -258,7 +258,7 @@ public:
       Send();
     }
     if (sock == INVALID_SOCKET) {
-      printf("invalid socket\n");
+      printf("%s, invalid socket\n", ToString(you).c_str());
       res = false;
     }
     close(sock);
@@ -296,8 +296,8 @@ bool TestNode(const CService &cip, int &ban, int &clientV, std::string &clientSV
     clientSV = node.GetClientSubVersion();
     blocks = node.GetStartingHeight();
  printf("%s: %s!!!\n", cip.ToString().c_str(), ret ? "GOOD" : "BAD");
- printf("clientv %d, clientsv %d, blocks %d\n", clientV, clientSV, blocks);
-    return ret;
+ printf("%s: clientv %i, clientsv %s, blocks %i\n", cip.ToString().c_str(), clientV, clientSV, blocks);
+ return ret;
   } catch(std::ios_base::failure& e) {
     ban = 0;
     return false;
